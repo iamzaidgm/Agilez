@@ -57,6 +57,58 @@ The content of this repository is the initial section of the implementation of a
 * npm
 * express
 
+## Diagrams 
+
+Classes Diagram
+![Classes Diagram](./Diagramas/AGILEZ_CLASES.jpg)
+
+* Link:
+https://drive.google.com/file/d/1RcyUPcFcGBGd8ZW8pzSbsu7FcxpWls4N/view?usp=sharing 
+
+Interaction Diagrams
+
+* Create Project
+![Create Project](./Diagramas/1crear_proyecto.jpg)
+
+* Assigning members to a project
+![Create Project](./Diagramas/2AsignacionDeMiembros.jpg)
+
+* Registrer
+![Create Project](./Diagramas/3Registro.jpg)
+
+* Add Skills
+![Create Project](./Diagramas/4AñadirHabilidades.jpg)
+
+* Edit Skills
+![Create Project](./Diagramas/5EditarHabilidades.jpg)
+
+* Log in
+![Create Project](./Diagramas/6IniciarSesion.jpg)
+
+* Add Cards
+![Create Project](./Diagramas/7AñadirTarjetas.jpg)
+
+* Delete Cards
+![Create Project](./Diagramas/8EliminarTarjetas.jpg)
+
+* Modify Cards
+![Create Project](./Diagramas/9ModificarTarjetas.jpg)
+
+* Move Cards 
+![Create Project](./Diagramas/10mover_tarjetas.jpg)
+
+* View graphs
+![Create Project](./Diagramas/11VisualizarGraficas.jpg)
+
+* Validate cards
+![Create Project](./Diagramas/12validarTarjetas.jpg)
+
+* Add review to release
+![Create Project](./Diagramas/13revisar_release.jpg)
+
+* Change project status
+![Create Project](./Diagramas/14CambiarStatus.jpg)
+
 ## Authors
 
 Anahí Peinado Villalobos 353262
