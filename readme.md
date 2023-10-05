@@ -65,6 +65,12 @@ Classes Diagram
 * Link:
 https://drive.google.com/file/d/1RcyUPcFcGBGd8ZW8pzSbsu7FcxpWls4N/view?usp=sharing 
 
+Main Interaction Diagram
+
+![Main Diagram](./Diagramas/00secuencia.jpg)
+
+*Link https://drive.google.com/file/d/1R7WHn3MdDr8EC1nR5Q1ozLFIYh7H3a1H/view?usp=sharing
+
 Interaction Diagrams
 
 * Create Project
