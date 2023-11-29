@@ -1,27 +1,30 @@
 const mongoose = require('mongoose');
 
-const skillLevelEnum = ['JUNIOR','SENIOR','MASTER'];
 
 
 const schema = mongoose.Schema({
+    _name:String,
     _skills:[{
-        name:String,
-        description:String,
-        skillLevel:{
-            type:String,
-            enum:skillLevelEnum
-        }
-
+        type:mongoose.Schema.ObjectId,
+        ref:'Skill'
     }]
-    //preguntar lo de la herencia con respecto a rol 
     
 });
 
 
 
 class Developer{
-    constructor(name){
+    constructor(name,skills){
+        this._name = name;
         this._skills = skills;
+    }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(v){
+        this._skills = v;
     }
 
     get skills(){

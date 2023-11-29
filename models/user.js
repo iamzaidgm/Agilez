@@ -20,10 +20,7 @@ const schema = mongoose.Schema({
         ref:'SocialMedia'
     }],
     _socialMediaKey:  String,
-    _rol:{
-        type:mongoose.Schema.ObjectId,
-        ref:'Rol'
-    }//preguntar 
+    _rol:mongoose.Schema.Types.ObjectId
 });
 
 

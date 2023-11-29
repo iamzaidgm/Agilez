@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
+    _name:String,
     _narrative: {
-        name: String,
         role: String,
         functionality: String,
         benefits : String,
@@ -11,7 +11,6 @@ const schema = mongoose.Schema({
 
     },
     _acceptanceCriteria:{
-        name: String,
         context: String,
         events:[String],
         results:[String]
@@ -21,11 +20,22 @@ const schema = mongoose.Schema({
 
 class UserStory{
 
-    constructor(narrative,acceptanceCriteria){
+    constructor(name,narrative,acceptanceCriteria){
+        this._name = name;
         this._narrative = narrative;
-        this._acceptanceCriteria.acceptanceCriteria;
+        this._acceptanceCriteria = acceptanceCriteria;
 
     }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(v){
+        this._name = v;
+    }
+
+
 
     get narrative(){
         return this._narrative;
