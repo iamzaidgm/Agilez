@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+const config = require('config');
 
 
 var indexRouter = require('./routes/index');
@@ -19,6 +21,20 @@ var socialMediaRouter = require('./routes/socialMedia');
 var userStoriesRouter = require('./routes/userStories');
 
 var app = express();
+
+const url = config.get('dbChain');
+
+mongoose.connect(url);
+
+const db = mongoose.connection;
+db.on('open', ()=> {
+  console.log("Connection OK");
+});
+
+db.on('error', ()=> {
+  console.log("Connection Failed")
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
