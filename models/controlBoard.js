@@ -7,7 +7,7 @@ const schema = mongoose.Schema({
     },
     _releaseBacklog: {
         type: mongoose.Schema.ObjectId,
-        ref:'ReleaseBacklog'
+        ref:'Backlog'
 
     },
     _sprintBacklog:{

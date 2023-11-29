@@ -1,5 +1,4 @@
 const express = require('express');
-const userStory = require('../models/userStory');
 const UserStory = require('../models/userStory');
 
 
@@ -50,7 +49,7 @@ function list(req,res,next){
 
 function index(req,res,next){
     const id = req.params.id;
-    userStory.findOne({"_id":id}).then(obj => res.status(200).json({
+    UserStory.findOne({"_id":id}).then(obj => res.status(200).json({
         message:`Usuario con id : ${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({

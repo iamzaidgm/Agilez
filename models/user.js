@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const schema = mongoose.Schema({
     _name: String,
     _lastName: String,

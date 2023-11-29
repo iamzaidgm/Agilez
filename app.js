@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('config');
+const {expressjwt} = require('express-jwt');
 
 
 var indexRouter = require('./routes/index');
@@ -19,6 +20,8 @@ var rolesRouter = require('./routes/roles');
 var scrumMastersRouter = require('./routes/scrumMasters');
 var socialMediaRouter = require('./routes/socialMedia');
 var userStoriesRouter = require('./routes/userStories');
+
+const JwtKey = config.get("secret.key");
 
 var app = express();
 
@@ -46,6 +49,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//app.use(expressjwt({secret:JwtKey, algorithms:['HS256']}).unless({path:["/login"]}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
