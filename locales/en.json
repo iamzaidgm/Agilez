@@ -1,0 +1,16 @@
+{
+    "backlog.ok": "Backlog succesfull",
+    "backlog.wrong": "Some information is wrong",
+    "userStories.create.ok": "New user storie created and saved",
+    "userStories.create.wrong": "User storie couldn't be created or saved",
+    "userStories.list.ok": "User storie list",
+    "userStories.list.wrong": "User storie list couldn't be showed",
+    "userStories.index.ok": "Information of the user storie",
+    "userStories.index.wrong": "Couldn't show the information of the Actor",
+    "userStories.replace.ok": "User storie replaced correctly",
+    "userStories.replace.wrong": "Couldn't replace user correctly",
+    "userStories.update.ok": "User stories updated corrrectly",
+    "userStories.update.wrong": "Couldn't update user stories correctly",
+    "userStories.destroy.ok": "User storie deleted correctly",
+    "userStories.destroy.wrong": "Couldn't delete user stories correctly"
+}
