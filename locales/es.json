@@ -1,0 +1,16 @@
+{
+    "backlog.ok": "Backlog exitoso",
+    "backlog.wrong": "Alguna información es incorrecta",
+    "userStories.create.ok": "Nueva historia de usuario creada y guardada",
+    "userStories.create.wrong": "No se pudo crear ni guardar la historia del usuario",
+    "userStories.list.ok": "Lista de historias de usuario",
+    "userStories.list.wrong": "No se pudo mostrar la lista de historias de usuario",
+    "userStories.index.ok": "Información de la historia de usuario",
+    "userStories.index.wrong": "No se pudo mostrar la información del Actor",
+    "userStories.replace.ok": "Historia de usuario reemplazada correctamente",
+    "userStories.replace.wrong": "No se pudieron reemplazar las historias de usuario correctamente",
+    "userStories.update.ok": "Historias de usuarios actualizadas correctamente",
+    "userStories.update.wrong": "No se pudieron actualizar las historias de usuarios correctamente",
+    "userStories.destroy.ok": "Historia de usuario eliminada correctamente",
+    "userStories.destroy.wrong": "No se pudieron eliminar las historias de usuario correctamente"
+}
