@@ -1,4 +1,7 @@
 {
+    "login.ok": "Inicio de sesión exitoso",
+	"login.wrong": "Error de inicio de sesión",
+
     "userStories.create.ok": "Nueva historia de usuario creada y guardada",
     "userStories.create.wrong": "No se pudo crear ni guardar la historia del usuario",
     "userStories.list.ok": "Lista de historias del usuario",

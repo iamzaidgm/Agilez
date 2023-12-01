@@ -1,4 +1,7 @@
 {
+    "login.ok": "Login successful",
+	"login.wrong": "Login failed",
+
     "userStories.create.ok": "New user storie created and saved",
     "userStories.create.wrong": "User storie couldn't be created or saved",
     "userStories.list.ok": "User storie list",

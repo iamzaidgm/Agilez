@@ -29,12 +29,15 @@ const schema = mongoose.Schema({
     _abilities:[{
         type:mongoose.Schema.ObjectId,
         ref:'Skill'
-    }]
+    }],
+    _email:String, 
+    _password:String,
+    _salt:String
 });
 
 
 class User{
-    constructor(name,lastName,CURP,RFC,birthday,address,socialMedia,socialMediaKey,rol,abilities){
+    constructor(name,lastName,CURP,RFC,birthday,address,socialMedia,socialMediaKey,rol,abilities,email,password,salt){
         this._name = name,
         this._lastName = lastName,
         this._CURP = CURP,
@@ -44,7 +47,10 @@ class User{
         this.socialMedia = socialMedia,
         this._socialMediaKey = socialMediaKey,
         this._rol = rol,
-        this._abilities = abilities
+        this._abilities = abilities,
+        this._email = email,
+        this._password = password, 
+        this._salt = salt
     }
 
 
@@ -126,6 +132,30 @@ class User{
 
     set abilities(v){
         this._abilities = v;
+    }
+
+    get email(){
+        return this._email;
+    }
+
+    set email(v){
+        this._email = v;
+    }
+
+    get password(){
+        return this._password;
+    }
+
+    set password(v){
+        this._password = v;
+    }
+
+    get salt(){
+        return this._salt;
+    }
+
+    set salt(v){
+        this._salt = v;
     }
 
 

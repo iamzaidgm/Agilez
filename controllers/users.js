@@ -3,6 +3,7 @@ const User = require('../models/user');
 const Skill = require('../models/skill');
 const mongoose = require('mongoose');
 const config = require('config');
+const bcrypt = require('bcrypt'); 
 
 
 async function create(req,res,next){
@@ -23,6 +24,10 @@ async function create(req,res,next){
     let socialMediaKey = req.body.socialMediaKey;
     let rol = req.body.rol;
     let abilities = [];
+    let email = req.body.email;
+    let password = req.body.password;
+    let salt = await bcrypt.genSalt(10);
+    let encriptpsw = await bcrypt.hash(password,salt);
     if(req.body.abilitiesIds){
         const abilitiesIds = req.body.abilitiesIds;
         abilities = await Skill.find({ "_id": { $in: abilitiesIds } });
@@ -42,7 +47,10 @@ async function create(req,res,next){
         socialMedia:socialMedia,
         socialMediaKey:socialMediaKey,
         rol:rol,
-        abilities:abilities
+        abilities:abilities,
+        email:email,
+        password:encriptpsw,
+        salt:salt
     });
 
 
