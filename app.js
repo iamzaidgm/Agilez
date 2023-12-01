@@ -11,14 +11,11 @@ const {expressjwt} = require('express-jwt');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var backlogsRouter = require('./routes/backlogs');
-var controlBoardsRouter = require('./routes/controlBoards');
 var developersRouter = require('./routes/developers');
 var productOwnersRouter = require('./routes/productOwners');
 var recordsRouter = require('./routes/records');
-var releaseBacklogsRouter = require('./routes/releaseBacklogs');
 var rolesRouter = require('./routes/roles');
 var scrumMastersRouter = require('./routes/scrumMasters');
-var socialMediaRouter = require('./routes/socialMedia');
 var userStoriesRouter = require('./routes/userStories');
 
 const JwtKey = config.get("secret.key");
@@ -55,14 +52,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/backlogs', backlogsRouter);
-app.use('/controlBoards', controlBoardsRouter);
 app.use('/developers', developersRouter);
 app.use('/productOwners', productOwnersRouter);
 app.use('/records', recordsRouter);
-app.use('/releaseBacklogs', releaseBacklogsRouter);
 app.use('/roles', rolesRouter);
 app.use('/scrumMasters', scrumMastersRouter);
-app.use('/socialMedia', socialMediaRouter);
 app.use('/userStories', userStoriesRouter);
 
 

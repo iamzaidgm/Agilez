@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const typeEnum = ['PRODUCT_BACKLOG','RELEASE_BACKLOG','SPRINT_BACKLOG'];
+
 const schema = mongoose.Schema({
     _userStories:[{
         type: mongoose.Schema.ObjectId,
@@ -11,14 +13,19 @@ const schema = mongoose.Schema({
             ref:'UserStory'
         },
         comment:String
-    }]
+    }],
+    _type:{
+        type:String,
+        enum:typeEnum
+    }
 });
 
 
 class Backlog{
-    constructor(userStories,reviews){
+    constructor(userStories,reviews,type){
         this._userStories = userStories;
         this._reviews = reviews;
+        this.type = type;
     }
 
     get userStories(){
@@ -35,6 +42,14 @@ class Backlog{
 
     set reviews(v){
         this._reviews = v
+    }
+
+    get type(){
+        return this._type;
+    }
+
+    set type(v){
+        this._type = v;
     }
 }
 
