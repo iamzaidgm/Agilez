@@ -25,20 +25,20 @@ function create(req,res,next){
         reviews:objr.reviews,
         type:objt.type
     }).save().then(obj => res.status(200).json({
-            message:`Backlog creada correctamente, con el id ${obj._id}`,
+            message:res.__('backlogs.create.ok'),
             obj:obj
         })).catch(ex => res.status(500).json({
-            message:`No se pudo crear el backlog`,
+            message:res.__('backlogs.create.wrong'),
             obj:ex
         }));
 }
 
 function list(req,res,next){
     Backlog.find().then(obj => res.status(200).json({
-        message:"Lista de backlogs",
+        message:res.__('backlogs.list.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message: "No se pudo obtener la lista de backlogs",
+        message:res.__('backlogs.list.wrong'),
         obj:ex
     }))
 }
@@ -47,10 +47,10 @@ function index(req,res,next){
     const id = req.params.id;
 
     Backlog.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Backlog con id :  ${obj._id}`,
+        message:res.__('backlogs.index.ok')+`${obj._id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo obtener el backlog con id : ${obj._id}`,
+        message:res.__('backlogs.index.wrong')+`${obj._id}`,
         obj:ex
     }));
 }
@@ -88,10 +88,10 @@ function replace(req, res, next) {
     
     Backlog.findOneAndReplace({"_id":id},backlog,{new:true})
     .then(obj => res.status(200).json({
-    message:`Backlog reemplazado correctamente, con el id: ${obj._id}`,
+    message: res.__('backlogs.replace.ok')+ `${obj._id}`,
     obj:obj
     })).catch(ex => res.status(500).json({
-    message:`No se pudo remplazar el backlog con el id : ${id}`,
+    message:res.__('backlogs.replace.wrong')+`${id}`,
     obj:ex
     }));
 }
@@ -136,10 +136,10 @@ function update(req, res, next) {
     
     Backlog.findOneAndUpdate({"_id":id},backlog,{new:true})
     .then(obj => res.status(200).json({
-    message:`Backlog actualizado correctamente, con el id: ${obj._id}`,
+    message:res.__('backlogs.update.ok')+`${obj._id}`,
     obj:obj
     })).catch(ex => res.status(500).json({
-    message:`No se pudo actualizar el backlog con el id : ${obj._id}`,
+    message: res.__('backlogs.update.wrong')+ `${obj._id}`,
     obj:ex
     }));
 }
@@ -150,10 +150,10 @@ function update(req, res, next) {
 function destroy(req,res,next){
     const id = req.params.id;
     Backlog.findByIdAndDelete({"_id":id}).then(obj => res.status(200).json({
-        message:`Backlog eliminado correctamente con  el id: ${id}`,
+        message: res.__('backlogs.destroy.ok')+ `${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo eliminar el backlog con el id: ${id}`,
+        message:res.__('backlogs.destroy.wrong')+`${id}`,
         obj:ex
     }));
 }

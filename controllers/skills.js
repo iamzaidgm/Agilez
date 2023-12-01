@@ -13,20 +13,20 @@ function create(req,res,next){
     });
 
     skill.save().then(obj => res.status(200).json({
-        message:"Habilidad creada correctamente",
+        message:res.__('skills.create.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:"No se pudo crear la habilidad",
+        message:res.__('skills.create.wrong'),
         obj:ex
     }));
 }
 
 function list(req,res,next){
     Skill.find().then(obj => res.status(200).json({
-        message:"Lista de Habilidades",
+        message:res.__('skills.list.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message: "No se pudo obtener la lista de Habilidades",
+        message:res.__('skills.list.wrong'),
         obj:ex
     }))
 }
@@ -35,10 +35,10 @@ function index(req,res,next){
     const id = req.params.id;
 
     Skill.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Habilidad con id :${id}`,
+        message:res.__('skills.index.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo obtener la habilidad con id : ${id}`,
+        message:res.__('skills.index.wrong'),
         obj:ex
     }));
 }
@@ -53,10 +53,10 @@ function update(req,res,next){
 function destroy(req,res,next){
     const id = req.params.id;
     Skill.findByIdAndDelete({"_id":id}).then(obj => res.status(200).json({
-        message:`Habilidad eliminada correctamente, contaba con el id: ${id}`,
+        message: res.__('skills.destroy.ok')+`${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo eliminar la habilidad con el id: ${id}`,
+        message: res.__('skills.destroy.wrong')+ `${id}`,
         obj:ex
     }));
 }

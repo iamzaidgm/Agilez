@@ -26,10 +26,10 @@ function create(req,res,next){
     });
 
     userStory.save().then(obj => res.status(200).json({
-        message:"Historia de usuario creada correctamente",
+        message:res.__('userStories.create.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:"No se pudo crear la historia de usuario",
+        message:res.__('userStories.create.wrong'),
         obj:ex
     }));
 
@@ -38,10 +38,10 @@ function create(req,res,next){
 
 function list(req,res,next){
     UserStory.find().then(objs => res.status(200).json({
-        message: "Lista de historias de usuario",
+        message: res.__('userStories.list.ok'),
         obj:objs
     })).catch(ex => res.status(500).json({
-        message: "No se pudo encontrar la lista de historias de usuario ",
+        message: res.__('userStories.list.wrong'),
         obj:ex
     }));
 
@@ -50,10 +50,10 @@ function list(req,res,next){
 function index(req,res,next){
     const id = req.params.id;
     UserStory.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Usuario con id : ${id}`,
+        message:res.__('userStories.index.ok') + `${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo consultar el usuario con id : ${id}`,
+        message:res.__('userStories.index.wrong') + `${id}`,
         obj:ex
     }));
 }
@@ -70,10 +70,10 @@ function replace(req,res,next){
 
     UserStory.findOneAndUpdate({"_id":id},userStory,{new:true})
         .then(obj => res.status(200).json({
-            message:`Historia de usuario reemplazada correctamente, con el id: ${id}`,
+            message:res.__('userStories.replace.ok')+`${id}`,
             obj:obj
         })).catch(ex => res.status(500).json({
-            message:`No se pudo reemplazar la historia de usuario con el id: ${id}`,
+            message:res.__('userStories.replace.wrong')+`${id}`,
             obj:ex
         }));
 }
@@ -98,10 +98,10 @@ function update(req,res,next){
 
     UserStory.findOneAndUpdate({ "_id": id }, updatedFields, { new: true })
         .then(obj => res.status(200).json({
-            message: `Historia de usuario actualizada correctamente, con el id: ${id}`,
+            message: res.__('userStories.update.ok')+`${id}`,
             obj: obj
         })).catch(ex => res.status(500).json({
-            message: `No se pudo actualizar la historia de usuario con el id: ${id}`,
+            message: res.__('userStories.update.wrong')+`${id}`,
             obj: ex
         }));
 }
@@ -109,10 +109,10 @@ function update(req,res,next){
 function destroy(req,res,next){
     const id = req.params.id;
     UserStory.findByIdAndDelete({"_id":id}).then(obj => res.status(200).json({
-        message:`Historia de Usuario eliminada correctamente, contaba con el id: ${id}`,
+        message:res.__('userStories.destroy.ok')+`${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo eliminar la historia de usuario con el id: ${id}`,
+        message:res.__('userStories.destroy.wrong')+`${id}`,
         obj:ex
     }));
 }

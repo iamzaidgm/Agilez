@@ -25,10 +25,6 @@ async function create(req,res,next){
 
     let abilities = await Skill.find({ "_id": { $in: abilitiesIds } });
     
-    if(rol != 'DEVELOPER'){
-        abilities = [];
-    }
-
 
     let user = new User({
         name:name,
@@ -45,10 +41,10 @@ async function create(req,res,next){
 
 
     user.save().then(obj => res.status(200).json({
-        msg: "Usuario creado correctamente",
+        msg: res.__('users.create.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:"No se pudo crear el usuario correctamente",
+        message:res.__('users.create.wrong'),
         obj:ex
     }));
 
@@ -58,10 +54,10 @@ async function create(req,res,next){
 
 function list(req,res,next){
     User.find().then(obj => res.status(200).json({
-        message:"Lista de Usuarios",
+        message:res.__('users.list.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message: "No se pudo obtener la lista de usuarios",
+        message: res.__('users.list.wrong'),
         obj:ex
     }))
 }
@@ -70,10 +66,10 @@ function index(req,res,next){
     const id = req.params.id;
 
     User.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Usuario con el id :${id}`,
+        message:res.__('users.index.ok')+`${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo obtener el usuario con id : ${id}`,
+        message:res.__('users.index.wrong')+`${id}`,
         obj:ex
     }));
 }
@@ -88,10 +84,10 @@ function update(req,res,next){
 function destroy(req,res,next){
     const id = req.params.id;
     User.findByIdAndDelete({"_id":id}).then(obj => res.status(200).json({
-        message:`Usuario eliminado correctamente, contaba con el id: ${id}`,
+        message:res.__('users.destroy.ok')+`${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo eliminar el usuario con el id: ${id}`,
+        message:res.__('users.destroy.wrong')+`${id}`+`${id}`,
         obj:ex
     }));
 }
