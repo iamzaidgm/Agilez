@@ -21,12 +21,13 @@ async function create(req,res,next){
     let socialMedia = req.body.socialMedia;
     let socialMediaKey = req.body.socialMediaKey;
     let rol = req.body.rol;
-    const abilitiesIds = req.body.abilitiesIds;
-
-    let abilities = await Skill.find({ "_id": { $in: abilitiesIds } });
-    
-    if(rol != 'DEVELOPER'){
-        abilities = [];
+    let abilities = [];
+    if(req.body.abilitiesIds){
+        const abilitiesIds = req.body.abilitiesIds;
+        abilities = await Skill.find({ "_id": { $in: abilitiesIds } });
+        if(rol != 'DEVELOPER'){
+            abilities = [];
+        }
     }
 
 
