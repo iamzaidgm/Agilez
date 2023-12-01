@@ -36,10 +36,10 @@ async function create(req,res,next){
     });
 
     record.save().then(obj => res.status(200).json({
-        msg: "Registro creado correctamente",
+        msg: res.__('records.create.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:"No se pudo crear el registro correctamente",
+        message:res.__('records.create.wrong'),
         obj:ex
     }));
 
@@ -49,10 +49,10 @@ async function create(req,res,next){
 
 function list(req,res,next){
     Record.find().then(obj => res.status(200).json({
-        message:"Lista de Proyectos",
+        message:res.__('records.list.ok'),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message: "No se pudo obtener la lista de proyectos",
+        message: res.__('records.list.wrong'),
         obj:ex
     }))
 }
@@ -61,10 +61,10 @@ function index(req,res,next){
     const id = req.params.id;
 
     Record.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Proyecto con el id :${id}`,
+        message:res.__('records.index.ok')+`${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo obtener el proyecto con id : ${id}`,
+        message: res.__('records.index.wrong')+ `${id}`,
         obj:ex
     }));
 }
@@ -73,7 +73,6 @@ function replace(req,res,next){
     res.send('record replace');
 }
 
-
 function update(req,res,next){
     res.send('record update');
 }
@@ -81,10 +80,10 @@ function update(req,res,next){
 function destroy(req,res,next){
     const id = req.params.id;
     Record.findByIdAndDelete({"_id":id}).then(obj => res.status(200).json({
-        message:`Proyecto eliminado correctamente, contaba con el id: ${id}`,
+        message:res.__('records.destroy.ok')+ `${id}`,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo eliminar el proyecto con el id: ${id}`,
+        message:res.__('records.destroy.wrong')+ `${id}`,
         obj:ex
     }));
 }
