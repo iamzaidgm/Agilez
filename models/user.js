@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const socialMediaEnum = ['FACEBOOK','GOOGLE'];
+
 const schema = mongoose.Schema({
     _name: String,
     _lastName: String,
@@ -14,24 +16,24 @@ const schema = mongoose.Schema({
         state: String,
         country: String
     },
-    _socialMediaOptions:[{
-        type: mongoose.Schema.ObjectId,
-        ref:'SocialMedia'
-    }],
+    _socialMedia:{
+        type:String,
+        enum:socialMediaEnum
+    },
     _socialMediaKey:  String,
     _rol:mongoose.Schema.Types.ObjectId
 });
 
 
 class User{
-    constructor(name,lastName,CURP,RFC,birthday,address,SocialMediaOptions,socialMediaKey,rol){
+    constructor(name,lastName,CURP,RFC,birthday,address,socialMedia,socialMediaKey,rol){
         this._name = name,
         this._lastName = lastName,
         this._CURP = CURP,
         this._RFC = RFC,
         this._birthday = birthday,
         this._address = address,
-        this.SocialMediaOptions = SocialMediaOptions,
+        this.socialMedia = socialMedia,
         this._socialMediaKey = socialMediaKey,
         this._rol = rol
     }
@@ -83,12 +85,12 @@ class User{
         this._address = v;
     }
 
-    get socialMediaOptions(){
-        return this._socialMediaOptions;
+    get socialMedia(){
+        return this._socialMedia;
     }
 
-    set socialMediaOptions(v){
-        this._socialMediaOptions = v;
+    set socialMedia(v){
+        this._socialMedia = v;
     }
 
 
