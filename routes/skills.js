@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const controller = require('../controllers/roles');
+const controller = require('../controllers/skills');
 
 
 router.post('/',controller.create);

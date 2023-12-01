@@ -9,21 +9,21 @@ const schema = mongoose.Schema({
     _description: String,
     _scrumMaster:{
         type: mongoose.Schema.ObjectId,
-        ref:'ScrumMaster'
+        ref:'User'
     },
     _productOwner:{
         type: mongoose.Schema.ObjectId,
-        ref:'ProductOwner'
+        ref:'User'
     },
     _developmentTeam:[{
         type: mongoose.Schema.ObjectId,
-        ref:'Developer'
+        ref:'User'
     }
     ],
-    _controlBoard: {
+    _controlBoard: [{
         type: mongoose.Schema.ObjectId,
-        ref:'ControlBoard'
-    }, 
+        ref:'Backlogs'
+    }], 
     _status:{
         type:String,
         enum:statusEnum

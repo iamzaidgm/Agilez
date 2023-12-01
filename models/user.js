@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const socialMediaEnum = ['FACEBOOK','GOOGLE'];
+const rolEnum = ['SCRUM_MASTER','PRODUCT_OWNER','DEVELOPER'];
 
 const schema = mongoose.Schema({
     _name: String,
@@ -21,12 +22,19 @@ const schema = mongoose.Schema({
         enum:socialMediaEnum
     },
     _socialMediaKey:  String,
-    _rol:mongoose.Schema.Types.ObjectId
+    _rol:{
+        type:String,
+        enum:rolEnum
+    },
+    _abilities:[{
+        type:mongoose.Schema.ObjectId,
+        ref:'Skill'
+    }]
 });
 
 
 class User{
-    constructor(name,lastName,CURP,RFC,birthday,address,socialMedia,socialMediaKey,rol){
+    constructor(name,lastName,CURP,RFC,birthday,address,socialMedia,socialMediaKey,rol,abilities){
         this._name = name,
         this._lastName = lastName,
         this._CURP = CURP,
@@ -35,7 +43,8 @@ class User{
         this._address = address,
         this.socialMedia = socialMedia,
         this._socialMediaKey = socialMediaKey,
-        this._rol = rol
+        this._rol = rol,
+        this._abilities = abilities
     }
 
 
@@ -110,6 +119,14 @@ class User{
         this._rol = v;
     }
 
+
+    get abilities(){
+        return this._abilities;
+    }
+
+    set abilities(v){
+        this._abilities = v;
+    }
 
 
 }
