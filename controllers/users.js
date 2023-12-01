@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/user');
 const Skill = require('../models/skill');
 const mongoose = require('mongoose');
+const config = require('config');
 
 
 async function create(req,res,next){

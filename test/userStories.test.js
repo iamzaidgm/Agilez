@@ -114,7 +114,7 @@ describe("User Stories controller test",()=>{
         });
         it("should return a 500 status if delete object doesn't exist.",async()=>{
             const id = "21345678"
-            const response = await supertest(app).patch(`/userStories/${id}`).send({objt:"{}"});
+            const response = await supertest(app).delete(`/userStories/${id}`).send({objt:"{}"});
             expect(response.status).toBe(500);
         });
     })

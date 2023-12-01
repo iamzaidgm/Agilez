@@ -6,6 +6,7 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('config');
 const {expressjwt} = require('express-jwt');
+const i18n = require('i18n');
 
 
 var indexRouter = require('./routes/index');
@@ -32,6 +33,12 @@ db.on('error', ()=> {
   console.log("Connection Failed")
 })
 
+i18n.configure({
+  locales: ['es','en'],
+  cookie: 'language',
+  directory: `${__dirname}/locales`
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +49,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(i18n.init);
 
 //app.use(expressjwt({secret:JwtKey, algorithms:['HS256']}).unless({path:["/login"]}));
 
