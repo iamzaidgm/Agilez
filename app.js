@@ -11,12 +11,9 @@ const {expressjwt} = require('express-jwt');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var backlogsRouter = require('./routes/backlogs');
-var developersRouter = require('./routes/developers');
-var productOwnersRouter = require('./routes/productOwners');
 var recordsRouter = require('./routes/records');
-var rolesRouter = require('./routes/roles');
-var scrumMastersRouter = require('./routes/scrumMasters');
 var userStoriesRouter = require('./routes/userStories');
+var skillsRouter = require('./routes/skills');
 
 const JwtKey = config.get("secret.key");
 
@@ -52,12 +49,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/backlogs', backlogsRouter);
-app.use('/developers', developersRouter);
-app.use('/productOwners', productOwnersRouter);
 app.use('/records', recordsRouter);
-app.use('/roles', rolesRouter);
-app.use('/scrumMasters', scrumMastersRouter);
 app.use('/userStories', userStoriesRouter);
+app.use('/skills', skillsRouter);
+
 
 
 // catch 404 and forward to error handler
